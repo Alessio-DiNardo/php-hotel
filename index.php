@@ -67,7 +67,7 @@ Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gl
         <!-- Bootstrap Table -->
         <table class="table">
             <thead>
-                <tr>
+                <tr class="bg-light">
                     <th scope="col">
                         Number
                     </th>
