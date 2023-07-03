@@ -51,3 +51,76 @@ Se non viene specificato nessun filtro, visualizzare come in precedenza tutti gl
     ];
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+<div class="table-container">
+        <!-- Bootstrap Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Number
+                    </th>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Description
+                    </th>
+                    <th scope="col">
+                        Parking
+                    </th>
+                    <th scope="col">
+                        Vote
+                    </th>
+                    <th scope="col">
+                        Distance to city center
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $counter = 1; ?>
+                <?php foreach ($hotels as $hotel) { ?>
+                    <tr>
+                        <th scope="row">
+                            <?php echo $counter; ?>
+                        </th>
+                        <td>
+                            <?php echo $hotel['name']; ?>
+                        </td>
+                        <td>
+                            <?php echo $hotel['description']; ?>
+                        </td>
+                        <td>
+                            <?php if ($hotel['parking'] == true) {
+                                echo "Yes, parking available";
+                            } elseif ($hotel['parking'] == false) {
+                                echo "No, parking not available";
+                            } ?>
+                        </td>
+                        <td>
+                            <?php echo $hotel['vote'] . "/5"; ?>
+                        </td>
+                        <td>
+                            <?php echo $hotel['distance_to_center'] . " km"; ?>
+                        </td>
+                    </tr>
+                    <?php $counter++; ?>
+                <?php } ?>
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+</html>
